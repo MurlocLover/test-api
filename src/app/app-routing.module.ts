@@ -34,6 +34,7 @@ import { PagesRegisterComponent } from './pages/pages-register/pages-register.co
 import { UsersProfileComponent } from './pages/users-profile/users-profile.component';
 import { PessoaComponent } from './pages/cadastro/pessoa/pessoa.component';
 import { PdfComponent } from './pages/cadastro/pessoa/pdf/pdf.component';
+import { DetailsComponent } from './pages/cadastro/pessoa/details/details.component';
 
 const routes: Routes = [
   { path: '', component: PessoaComponent },
@@ -70,7 +71,9 @@ const routes: Routes = [
   { path: 'pages-register', component: PagesRegisterComponent },
   { path: 'user-profile', component: UsersProfileComponent },
   { path: 'pessoa', component: PessoaComponent },
-  { path: 'pessoa/pdf', component: PdfComponent }
+  { path: 'pessoa/pdf/:id', component: PdfComponent },
+  { path: 'pessoa/details', component: DetailsComponent }
+
 ];
 
 @NgModule({

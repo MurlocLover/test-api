@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Pessoa } from '../model/pessoa';
+import { Pessoa } from '../model/pessoa.model';
 import { ServiceAbstract } from 'src/base/service-abstract';
 import { HttpService } from 'src/base/http.service';
 import { environment } from '../environments/environment';

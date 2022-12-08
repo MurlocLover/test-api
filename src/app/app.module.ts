@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MedidaService } from 'src/services/services.medidas';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layouts/header/header.component';
@@ -45,6 +45,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor } from 'src/auth/interceptors/error.interceptor';
 import  {  PdfViewerModule, PdfViewerComponent  }  from  'ng2-pdf-viewer';
 import { PdfComponent } from "./pages/cadastro/pessoa/pdf/pdf.component";
+import { DetailsComponent } from './pages/cadastro/pessoa/details/details.component';
 
 
 @NgModule({
@@ -86,9 +87,10 @@ import { PdfComponent } from "./pages/cadastro/pessoa/pdf/pdf.component";
         PagesError404Component,
         PagesBlankComponent,
         PessoaComponent,
-        PdfComponent
+        PdfComponent,
+        DetailsComponent
     ],
-    providers: [PessoaService, PdfViewerComponent, { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
+    providers: [PessoaService, MedidaService, PdfViewerComponent, { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,

@@ -8,9 +8,13 @@
         <li class="breadcrumb-item active">PDF</li>
       </ol>
     </nav>
+  </div>
+  <section class="section pessoa">
+    <div class="row">
     <div id="outerContainer">
       <div class="pdf-container">
         <pdf-viewer
+          keyExpr="idMedidas"
           [src]="src"
           [rotation]="0"
           [original-size]="false"
@@ -28,4 +32,5 @@
       </div>
     </div>
   </div>
+</section>
 </main>

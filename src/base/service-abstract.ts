@@ -15,7 +15,6 @@ export abstract class ServiceAbstract <M extends ModelAbstract> {
     public http: HttpService,
     public baseUrl: string = ''
   ) {
-
   }
 
   getByIdm(idm: string): Observable<M> {

@@ -1,6 +1,6 @@
 export class Pessoa {
   id?: number = 0;
-  idm?: number = 0;
+  idMedidas?: string = '';
   nome?: string = '';
   endereco?: string = '';
   dataInscricao?: Date = new Date();
@@ -29,7 +29,7 @@ export class Pessoa {
 
   constructor(
     id?: number,
-    idm?: number,
+    idMedidas?: string,
     nome?: string,
     endereco?: string,
     dataInscricao?: Date,
@@ -54,7 +54,7 @@ export class Pessoa {
     dddContatodeEmergencia?: string,
     telefoneContatodeEmergencia?: string) {
     this.id = id;
-    this.idm = idm;
+    this.idMedidas = idMedidas;
     this.nome = nome;
     this.endereco = endereco;
     this.dataInscricao = dataInscricao;

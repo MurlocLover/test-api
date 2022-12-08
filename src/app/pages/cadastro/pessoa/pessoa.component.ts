@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, Input, ViewChild } from '@angular/core';
 import { DxDataGridComponent } from 'devextreme-angular';
 import { Customer } from 'src/model/customer';
-import { Pessoa } from 'src/model/pessoa';
+import { Pessoa } from 'src/model/pessoa.model';
 import { PessoaService } from 'src/services/services.pessoa';
 import { ResolveStart, Router } from '@angular/router';
 import { pipe } from 'rxjs';
@@ -11,10 +11,9 @@ import { AppComponent } from 'src/app/app.component';
 import html2canvas from 'html2canvas';
 import jspdf from "jspdf";
 import { PdfComponent } from './pdf/pdf.component';
-import { Medidas } from 'src/model/medidas';
-import { MedidaService } from 'src/services/services.medidas';
+import { MedidaService } from "src/services/services.medidas";
+import { Medidas } from "src/model/medidas.model";
 import notify from 'devextreme/ui/notify';
-
 
 
 @Component({
@@ -37,11 +36,13 @@ export class PessoaComponent implements OnInit {
 
   constructor(private elementRef: ElementRef,
     private pessoaService: PessoaService,
+    private medidasService: MedidaService,
     private notification: NotificationToolTip,
     private router: Router
     ) {
     const that = this;
     this.click = this.click.bind(this);
+    this.details = this.details.bind(this);
   }
 
   ngOnInit(): void {
@@ -55,6 +56,9 @@ export class PessoaComponent implements OnInit {
       this.Pessoas = data
     });
 
+    this.medidasService.getMedida('').subscribe((data: Medidas[]) => {
+      this.Medidas = data
+    });
   }
 
   public showPopup(event) {
@@ -81,7 +85,12 @@ export class PessoaComponent implements OnInit {
 
   public click(e){
     console.log(e.row.data);
-    this.router.navigate(['/pdf' + this.pessoa.idm])
+    this.router.navigate(['pessoa/pdf/'+ e.row.data.idMedidas]);
+  };
+
+  public details(e){
+    console.log(e.row.data);
+    this.router.navigate(['pessoa/details/']);
   };
 
   rowValidating(e) {

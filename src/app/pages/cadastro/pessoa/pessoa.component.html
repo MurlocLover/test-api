@@ -15,10 +15,15 @@
         <dxi-column type="buttons" [width]="110">
           <dxi-button
             hint="Clone"
-            keyExpr="idMedidas"
+            keyExpr="id"
             icon="copy"
             [onClick]="click"
           ></dxi-button>
+          <dxi-button
+          hint="Clone"
+          keyExpr="id"
+          icon="add"
+          [onClick]="details"></dxi-button>
         </dxi-column>
         <dxi-column dataField="id" caption="Title"></dxi-column>
         <dxi-column dataField="nome"></dxi-column>
@@ -41,7 +46,7 @@
           </dxi-item>
         </dxo-toolbar>
       </dx-data-grid>
-      <dx-popup [width]="1000" [height]="600" [showTitle]="true" title="Adicao / Edicao de Cadastro de Pessoa"
+      <dx-popup [width]="1000" [height]="600" [showTitle]="true" title="Adição / Edição de Cadastro de Pessoa"
         [dragEnabled]="false" [hideOnOutsideClick]="true" [showCloseButton]="true" container=".dx-viewport"
         [(visible)]="popupVisible">
         <div *dxTemplate="let data of 'content'">
@@ -109,7 +114,9 @@
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label">Telefone</label>
                 <div class="col-sm-2">
-                  <dx-text-box [(value)]="pessoa.ddd" [showClearButton]="true">
+                  <dx-text-box [(
+
+                  value)]="pessoa.ddd" [showClearButton]="true">
                   </dx-text-box>
                 </div>
                 <div class="col-sm-4">
